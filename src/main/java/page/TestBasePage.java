@@ -16,13 +16,15 @@ public class TestBasePage {
 	public static WebDriver driver;
 	public static Properties prop;
 
-	public TestBasePage() throws IOException {//Created Constructor to initialize properties file
+	public TestBasePage()  {//Created Constructor to initialize properties file
 		try {
 		 prop = new Properties();
 		FileInputStream fi = new FileInputStream("C:\\Users\\nshrestha\\Desktop\\Selenium\\HubSpot\\src\\main\\java\\page\\config.properties");
 			prop.load(fi);
 
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

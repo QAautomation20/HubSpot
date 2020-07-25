@@ -7,22 +7,27 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import utilPage.WindowHandles;
 
 public class SignUpPage extends TestBasePage {
-
-	public SignUpPage() throws IOException {
-		super();
-		
-	}
-	@FindBy(how = How.LINK_TEXT, using = "Get HubSpot free")WebElement signUp;
+	
+	@FindBy(how = How.LINK_TEXT, using = "Get HubSpot free")WebElement GetHub;
 	@FindBy(how = How.LINK_TEXT, using = "Get free CRM")WebElement GetAccount;
 
+	//Initializing the page objects
+	public SignUpPage() {
+		PageFactory.initElements(driver, this);//this = same as SignUpPage.class 
+	}
+	//Actions
+	public String validateSignUpPage() {
+		return driver.getTitle();
+		
+	}
 
-	public void signUp() {
-		signUp.click();
+	public void createAccount() {
+		GetHub.click();
 	}
 	public void getAccount() {
 		GetAccount.click();
+		
 	}
 }
